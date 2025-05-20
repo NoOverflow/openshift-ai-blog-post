@@ -1,0 +1,17 @@
+kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: quantile-regression
+  labels:
+    kubernetes.io/metadata.name: quantile-regression
+    opendatahub.io/dashboard: 'true'
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/audit-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/warn-version: latest
+  annotations:
+    openshift.io/description: ''
+    openshift.io/display-name: quantile-regression
+spec:
+  finalizers:
+    - kubernetes
