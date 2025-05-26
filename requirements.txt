@@ -4,4 +4,6 @@ scikit-learn
 matplotlib
 PyQt6
 xgboost_ray
-ray[train]
+codeflare_sdk
+numpy>2
+dotenv
