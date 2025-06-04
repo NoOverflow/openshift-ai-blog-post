@@ -1,0 +1,23 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: default-grafana-dashboard
+  namespace: openshift-monitoring
+spec:
+  folderRef: ray-folder
+  instanceSelector:
+    matchLabels:
+      dashboards: demo-grafana
+  url: "https://raw.githubusercontent.com/ray-project/kuberay/refs/heads/master/config/grafana/default_grafana_dashboard.json"
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: data-grafana-dashboard
+  namespace: openshift-monitoring
+spec:
+  folderRef: ray-folder
+  instanceSelector:
+    matchLabels:
+      dashboards: demo-grafana
+  url: "https://raw.githubusercontent.com/ray-project/kuberay/refs/heads/master/config/grafana/data_grafana_dashboard.json"

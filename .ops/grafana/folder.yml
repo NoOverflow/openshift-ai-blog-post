@@ -1,0 +1,10 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: ray-folder
+  namespace: openshift-monitoring
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: demo-grafana
+  title: "Ray monitoring"

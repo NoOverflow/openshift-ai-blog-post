@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: demo-grafana-sa-secret
+  namespace: openshift-monitoring
+  annotations:
+    kubernetes.io/service-account.name: demo-grafana-sa
+type: kubernetes.io/service-account-token

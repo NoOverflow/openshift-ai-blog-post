@@ -1,0 +1,40 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: Grafana
+metadata:
+  generation: 2
+  labels:
+    dashboards: demo-grafana
+    folders: demo-grafana
+  name: demo-grafana
+  namespace: openshift-monitoring
+spec:
+  config:
+    auth:
+      disable_login_form: "false"
+    log:
+      mode: console
+    # This is to allow embedding Grafana in the Ray Dashboard
+    security:
+      allow_embedding: "true"
+      cookie_secure: "true"
+      cookie_samesite: "none"
+    auth.anonymous:
+      enabled: "true"
+      org_role: Viewer
+  version: "docker.io/grafana/grafana@sha256:a0f881232a6fb71a0554a47d0fe2203b6888fe77f4cefb7ea62bed7eb54e13c3"
+  route:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/managed-by: grafana-operator
+        dashboards: demo-grafana
+        folders: demo-grafana
+      name: demo-grafana-service
+      namespace: openshift-monitoring
+    spec:
+      port:
+        targetPort: grafana
+      to:
+        kind: ""
+        name: demo-grafana-service
+        weight: null
